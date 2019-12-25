@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>SweetLove</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 字符集过滤器 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <!-- 前端控制器 -->
+  <servlet>
+  	<servlet-name>springmvc</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:spring-*.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  	<!-- 配置文件上传的相关配置 -->
+  	<multipart-config>
+  		<!-- 当前文件大小超过允许的内存使用空间时的临时存储目录 -->
+  		<location>D:/temp</location>
+  		<!-- 单个文件允许的最大限制 (字节)-->
+  		<max-file-size>20971520</max-file-size>
+  		<!-- 允许的表单提交的最大限制 (字节)-->
+  		<max-request-size>209715200</max-request-size>
+  		<!-- 允许的缓存空间大小 -->
+  		<file-size-threshold>20971500</file-size-threshold>
+  	</multipart-config>
+  </servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+  
+  
+  
+</web-app>

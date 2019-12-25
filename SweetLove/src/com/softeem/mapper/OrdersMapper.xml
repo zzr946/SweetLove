@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softeem.mapper.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.softeem.pojo.Orders" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="ordernumber" property="ordernumber" jdbcType="VARCHAR" />
+    <result column="ordertime" property="ordertime" jdbcType="VARCHAR" />
+    <result column="gid" property="gid" jdbcType="VARCHAR" />
+    <result column="goodsnumber" property="goodsnumber" jdbcType="INTEGER" />
+    <result column="total" property="total" jdbcType="DOUBLE" />
+    <result column="addid" property="addid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="reserve3" property="reserve3" jdbcType="VARCHAR" />
+    <result column="reserve4" property="reserve4" jdbcType="INTEGER" />
+    <result column="reserve5" property="reserve5" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ordernumber, ordertime, gid, goodsnumber, total, addid, status, reserve1, reserve2, 
+    reserve3, reserve4, reserve5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from orders
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.pojo.Orders" >
+    insert into orders (id, ordernumber, ordertime, 
+      gid, goodsnumber, total, 
+      addid, status, reserve1, 
+      reserve2, reserve3, reserve4, 
+      reserve5)
+    values (#{id,jdbcType=VARCHAR}, #{ordernumber,jdbcType=VARCHAR}, #{ordertime,jdbcType=VARCHAR}, 
+      #{gid,jdbcType=VARCHAR}, #{goodsnumber,jdbcType=INTEGER}, #{total,jdbcType=DOUBLE}, 
+      #{addid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=INTEGER}, 
+      #{reserve5,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.pojo.Orders" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ordernumber != null" >
+        ordernumber,
+      </if>
+      <if test="ordertime != null" >
+        ordertime,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="goodsnumber != null" >
+        goodsnumber,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="addid != null" >
+        addid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserve1 != null" >
+        reserve1,
+      </if>
+      <if test="reserve2 != null" >
+        reserve2,
+      </if>
+      <if test="reserve3 != null" >
+        reserve3,
+      </if>
+      <if test="reserve4 != null" >
+        reserve4,
+      </if>
+      <if test="reserve5 != null" >
+        reserve5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernumber != null" >
+        #{ordernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=VARCHAR},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnumber != null" >
+        #{goodsnumber,jdbcType=INTEGER},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=DOUBLE},
+      </if>
+      <if test="addid != null" >
+        #{addid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.pojo.Orders" >
+    update orders
+    <set >
+      <if test="ordernumber != null" >
+        ordernumber = #{ordernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null" >
+        ordertime = #{ordertime,jdbcType=VARCHAR},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnumber != null" >
+        goodsnumber = #{goodsnumber,jdbcType=INTEGER},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=DOUBLE},
+      </if>
+      <if test="addid != null" >
+        addid = #{addid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        reserve3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        reserve4 = #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        reserve5 = #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.pojo.Orders" >
+    update orders
+    set ordernumber = #{ordernumber,jdbcType=VARCHAR},
+      ordertime = #{ordertime,jdbcType=VARCHAR},
+      gid = #{gid,jdbcType=VARCHAR},
+      goodsnumber = #{goodsnumber,jdbcType=INTEGER},
+      total = #{total,jdbcType=DOUBLE},
+      addid = #{addid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      reserve2 = #{reserve2,jdbcType=VARCHAR},
+      reserve3 = #{reserve3,jdbcType=VARCHAR},
+      reserve4 = #{reserve4,jdbcType=INTEGER},
+      reserve5 = #{reserve5,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 查看用户所有未删除的订单 -->
+  <select id="selectByUid" parameterType="java.lang.String" resultType="orders">
+  	select * from orders where reserve1=#{uid} and status!=5
+  </select>
+  
+  <!-- 查寻用户所有符合状态条件的订单项 -->
+  <select id="selectByUidAndStstus" parameterType="orders" resultType="orders">
+  	select * from orders where reserve1=#{reserve1} and status=#{status}
+  </select>
+  
+  
+</mapper>

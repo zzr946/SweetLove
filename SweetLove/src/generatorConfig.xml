@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <context id="context1" >
+  	<commentGenerator>
+  		<!-- 是否抑制所有的注释 -->
+  		<property name="suppressAllComments" value="true"/>
+  	</commentGenerator>
+  	
+  	<!-- JDBC配置 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+    				connectionURL="jdbc:mysql://127.0.0.1:3306/sweetlove"
+    				userId="root"
+    				password="123456" />
+    
+    <!-- java模型(pojo/dto)生成位置      targetPackage指定代码生成后所在的包      targetProject执行代码生成到的目标项目-->
+    <javaModelGenerator targetPackage="com.softeem.pojo"
+    					targetProject="SweetLove" />
+    
+    <!-- 配置映射接口(Mapper接口)生成位置 -->
+    <sqlMapGenerator targetPackage="com.softeem.mapper"
+    				 targetProject="SweetLove" />
+    
+    <!-- 配置映射文件(Mapper.xml)的位置   type指生成文件的模式-->
+    <javaClientGenerator targetPackage="com.softeem.mapper"
+    					 targetProject="SweetLove"
+    					 type="XMLMAPPER" />
+    
+    <!-- 映射信息配置    schema:指数据库实例
+    			   tableName:指表名 
+    			   domainObjectName:若实体来的类名与表名一样时可以使用该属性重命名(默认一致)
+    			   enableXXX:若不需要某些方法,则可以使用该属性设置为false
+    -->
+    <table schema="sweetlove" tableName="address"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    		<!-- 给列取别名,使得生成的实体类中的列名与数据库表中不一样 -->
+<!--       <columnOverride column="???" property="???" /> -->
+    </table>
+    <table schema="sweetlove" tableName="admin"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="cart"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="category"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="collect"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="goods"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="orders"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+    <table schema="sweetlove" tableName="user"
+    	   enableSelectByExample="false"
+    	   enableCountByExample="false"
+    	   enableDeleteByExample="false"
+    	   enableUpdateByExample="false">
+    </table>
+
+  </context>
+</generatorConfiguration>

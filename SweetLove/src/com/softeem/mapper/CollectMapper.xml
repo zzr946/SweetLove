@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softeem.mapper.CollectMapper" >
+  <resultMap id="BaseResultMap" type="com.softeem.pojo.Collect" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="colltime" property="colltime" jdbcType="VARCHAR" />
+    <result column="gid" property="gid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="reserve3" property="reserve3" jdbcType="VARCHAR" />
+    <result column="reserve4" property="reserve4" jdbcType="INTEGER" />
+    <result column="reserve5" property="reserve5" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, colltime, gid, status, reserve1, reserve2, reserve3, reserve4, reserve5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from collect
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from collect
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.pojo.Collect" >
+    insert into collect (id, uid, colltime, 
+      gid, status, reserve1, 
+      reserve2, reserve3, reserve4, 
+      reserve5)
+    values (#{id,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{colltime,jdbcType=VARCHAR}, 
+      #{gid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=INTEGER}, 
+      #{reserve5,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.pojo.Collect" >
+    insert into collect
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="colltime != null" >
+        colltime,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserve1 != null" >
+        reserve1,
+      </if>
+      <if test="reserve2 != null" >
+        reserve2,
+      </if>
+      <if test="reserve3 != null" >
+        reserve3,
+      </if>
+      <if test="reserve4 != null" >
+        reserve4,
+      </if>
+      <if test="reserve5 != null" >
+        reserve5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="colltime != null" >
+        #{colltime,jdbcType=VARCHAR},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.pojo.Collect" >
+    update collect
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="colltime != null" >
+        colltime = #{colltime,jdbcType=VARCHAR},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        reserve3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        reserve4 = #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        reserve5 = #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.pojo.Collect" >
+    update collect
+    set uid = #{uid,jdbcType=VARCHAR},
+      colltime = #{colltime,jdbcType=VARCHAR},
+      gid = #{gid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      reserve2 = #{reserve2,jdbcType=VARCHAR},
+      reserve3 = #{reserve3,jdbcType=VARCHAR},
+      reserve4 = #{reserve4,jdbcType=INTEGER},
+      reserve5 = #{reserve5,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectAll" resultType="collect">
+  	select * from collect
+  </select>
+  
+</mapper>

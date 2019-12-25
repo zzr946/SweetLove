@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softeem.mapper.AddressMapper" >
+  <resultMap id="BaseResultMap" type="com.softeem.pojo.Address" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="detailadd" property="detailadd" jdbcType="VARCHAR" />
+    <result column="adduser" property="adduser" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="reserve3" property="reserve3" jdbcType="VARCHAR" />
+    <result column="reserve4" property="reserve4" jdbcType="INTEGER" />
+    <result column="reserve5" property="reserve5" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, detailadd, adduser, phone, status, reserve1, reserve2, reserve3, reserve4, 
+    reserve5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from address
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.pojo.Address" >
+    insert into address (id, uid, detailadd, 
+      adduser, phone, status, 
+      reserve1, reserve2, reserve3, 
+      reserve4, reserve5)
+    values (#{id,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{detailadd,jdbcType=VARCHAR}, 
+      #{adduser,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
+      #{reserve4,jdbcType=INTEGER}, #{reserve5,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.pojo.Address" >
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="detailadd != null" >
+        detailadd,
+      </if>
+      <if test="adduser != null" >
+        adduser,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserve1 != null" >
+        reserve1,
+      </if>
+      <if test="reserve2 != null" >
+        reserve2,
+      </if>
+      <if test="reserve3 != null" >
+        reserve3,
+      </if>
+      <if test="reserve4 != null" >
+        reserve4,
+      </if>
+      <if test="reserve5 != null" >
+        reserve5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="detailadd != null" >
+        #{detailadd,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null" >
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.pojo.Address" >
+    update address
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="detailadd != null" >
+        detailadd = #{detailadd,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null" >
+        adduser = #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        reserve3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        reserve4 = #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        reserve5 = #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.pojo.Address" >
+    update address
+    set uid = #{uid,jdbcType=VARCHAR},
+      detailadd = #{detailadd,jdbcType=VARCHAR},
+      adduser = #{adduser,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      reserve2 = #{reserve2,jdbcType=VARCHAR},
+      reserve3 = #{reserve3,jdbcType=VARCHAR},
+      reserve4 = #{reserve4,jdbcType=INTEGER},
+      reserve5 = #{reserve5,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 查询用户的可用地址 -->
+  <select id="selectAddressAll" resultType="address">
+  	select * from address where uid=#{uid} and status!=1
+  </select>
+  
+  <!-- 将当前用户的所有可用地址设置为非默认状态 -->
+  <update id="updataByid" parameterType="address">
+  	update address set status=0 where uid=#{uid} and status!=1
+  </update>
+  
+  <!-- 将指定用户id的指定地址修改为默认状态 -->
+  <update id="updateByDefault" parameterType="address">
+  	update address set status=2 where id=#{id} and uid=#{uid} and status!=1;
+  </update>
+  
+  <!-- 删除地址的方法 -->
+  <update id="delAddress" parameterType="address">
+  	update address set status=1 where id=#{id} and uid=#{uid};
+  </update>
+  
+</mapper>

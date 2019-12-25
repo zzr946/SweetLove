@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.softeem.mapper.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.softeem.pojo.Goods" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="goodsname" property="goodsname" jdbcType="VARCHAR" />
+    <result column="cateid" property="cateid" jdbcType="VARCHAR" />
+    <result column="goodsinfo" property="goodsinfo" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="sample1" property="sample1" jdbcType="VARCHAR" />
+    <result column="sample2" property="sample2" jdbcType="VARCHAR" />
+    <result column="sample3" property="sample3" jdbcType="VARCHAR" />
+    <result column="sample4" property="sample4" jdbcType="VARCHAR" />
+    <result column="sample5" property="sample5" jdbcType="VARCHAR" />
+    <result column="spce" property="spce" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="reserve3" property="reserve3" jdbcType="VARCHAR" />
+    <result column="reserve4" property="reserve4" jdbcType="INTEGER" />
+    <result column="reserve5" property="reserve5" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, goodsname, cateid, goodsinfo, price, sample1, sample2, sample3, sample4, sample5, 
+    spce, origin, detail, status, reserve1, reserve2, reserve3, reserve4, reserve5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from goods
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.pojo.Goods" >
+    insert into goods (id, goodsname, cateid, 
+      goodsinfo, price, sample1, 
+      sample2, sample3, sample4, 
+      sample5, spce, origin, 
+      detail, status, reserve1, 
+      reserve2, reserve3, reserve4, 
+      reserve5)
+    values (#{id,jdbcType=VARCHAR}, #{goodsname,jdbcType=VARCHAR}, #{cateid,jdbcType=VARCHAR}, 
+      #{goodsinfo,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{sample1,jdbcType=VARCHAR}, 
+      #{sample2,jdbcType=VARCHAR}, #{sample3,jdbcType=VARCHAR}, #{sample4,jdbcType=VARCHAR}, 
+      #{sample5,jdbcType=VARCHAR}, #{spce,jdbcType=VARCHAR}, #{origin,jdbcType=VARCHAR}, 
+      #{detail,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=INTEGER}, 
+      #{reserve5,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.pojo.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="goodsname != null" >
+        goodsname,
+      </if>
+      <if test="cateid != null" >
+        cateid,
+      </if>
+      <if test="goodsinfo != null" >
+        goodsinfo,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="sample1 != null" >
+        sample1,
+      </if>
+      <if test="sample2 != null" >
+        sample2,
+      </if>
+      <if test="sample3 != null" >
+        sample3,
+      </if>
+      <if test="sample4 != null" >
+        sample4,
+      </if>
+      <if test="sample5 != null" >
+        sample5,
+      </if>
+      <if test="spce != null" >
+        spce,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserve1 != null" >
+        reserve1,
+      </if>
+      <if test="reserve2 != null" >
+        reserve2,
+      </if>
+      <if test="reserve3 != null" >
+        reserve3,
+      </if>
+      <if test="reserve4 != null" >
+        reserve4,
+      </if>
+      <if test="reserve5 != null" >
+        reserve5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null" >
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="cateid != null" >
+        #{cateid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsinfo != null" >
+        #{goodsinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="sample1 != null" >
+        #{sample1,jdbcType=VARCHAR},
+      </if>
+      <if test="sample2 != null" >
+        #{sample2,jdbcType=VARCHAR},
+      </if>
+      <if test="sample3 != null" >
+        #{sample3,jdbcType=VARCHAR},
+      </if>
+      <if test="sample4 != null" >
+        #{sample4,jdbcType=VARCHAR},
+      </if>
+      <if test="sample5 != null" >
+        #{sample5,jdbcType=VARCHAR},
+      </if>
+      <if test="spce != null" >
+        #{spce,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.pojo.Goods" >
+    update goods
+    <set >
+      <if test="goodsname != null" >
+        goodsname = #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="cateid != null" >
+        cateid = #{cateid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsinfo != null" >
+        goodsinfo = #{goodsinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="sample1 != null" >
+        sample1 = #{sample1,jdbcType=VARCHAR},
+      </if>
+      <if test="sample2 != null" >
+        sample2 = #{sample2,jdbcType=VARCHAR},
+      </if>
+      <if test="sample3 != null" >
+        sample3 = #{sample3,jdbcType=VARCHAR},
+      </if>
+      <if test="sample4 != null" >
+        sample4 = #{sample4,jdbcType=VARCHAR},
+      </if>
+      <if test="sample5 != null" >
+        sample5 = #{sample5,jdbcType=VARCHAR},
+      </if>
+      <if test="spce != null" >
+        spce = #{spce,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null" >
+        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        reserve3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null" >
+        reserve4 = #{reserve4,jdbcType=INTEGER},
+      </if>
+      <if test="reserve5 != null" >
+        reserve5 = #{reserve5,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.pojo.Goods" >
+    update goods
+    set goodsname = #{goodsname,jdbcType=VARCHAR},
+      cateid = #{cateid,jdbcType=VARCHAR},
+      goodsinfo = #{goodsinfo,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      sample1 = #{sample1,jdbcType=VARCHAR},
+      sample2 = #{sample2,jdbcType=VARCHAR},
+      sample3 = #{sample3,jdbcType=VARCHAR},
+      sample4 = #{sample4,jdbcType=VARCHAR},
+      sample5 = #{sample5,jdbcType=VARCHAR},
+      spce = #{spce,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      reserve2 = #{reserve2,jdbcType=VARCHAR},
+      reserve3 = #{reserve3,jdbcType=VARCHAR},
+      reserve4 = #{reserve4,jdbcType=INTEGER},
+      reserve5 = #{reserve5,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 查询所有商品 -->
+  <select id="selectGoodsAll" resultType="goods">
+  	select * from goods;
+  </select>
+  
+  <!-- 模糊查询商品 -->
+  <select id="selectByInp" resultType="goods" parameterType="java.lang.String">
+  	select * from goods where concat(goodsname,goodsinfo) like #{inp} and status=0
+  </select>  
+  
+</mapper>
